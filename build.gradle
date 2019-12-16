@@ -12,26 +12,16 @@ repositories {
 	mavenCentral()
 }
 
-ext {
-	set('springCloudVersion', "Hoxton.RELEASE")
-
-	dependencies {
-		implementation 'org.springframework.boot:spring-boot-starter-web'
-		implementation 'org.springframework.session:spring-session-core'
-		implementation 'org.springframework.cloud:spring-cloud-starter-aws'
-		testImplementation('org.springframework.boot:spring-boot-starter-test') {
-			exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-		}
-		compile group: 'com.cloudant', name: 'cloudant-spring-boot-starter', version: '0.0.4'
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.session:spring-session-core'
+//	implementation 'org.springframework.cloud:spring-cloud-starter-aws'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	dependencyManagement {
-		imports {
-			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-		}
-	}
+	compile group: 'com.cloudant', name: 'cloudant-spring-boot-starter', version: '0.0.4'
+}
 
-	test {
-		useJUnitPlatform()
-	}
-
+test {
+	useJUnitPlatform()
 }
