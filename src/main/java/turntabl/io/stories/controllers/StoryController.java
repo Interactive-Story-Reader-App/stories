@@ -24,7 +24,7 @@ public class StoryController {
     @CrossOrigin
     @PostMapping("/api/v1/stories")
     public void addNewStory(@RequestBody NewStory story) {
-        db.save(story);
+        Response response = db.save(story);
     }
 
     @CrossOrigin
@@ -41,23 +41,23 @@ public class StoryController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/api/v1/stories/{id}", method = RequestMethod.PATCH)
+    @PatchMapping("/api/v1/stories/{id}")
     public void updateStory(@RequestBody StoryTO uStory, @PathVariable("id") String id) {
         StoryTO story = db.find(StoryTO.class, id);
 
         story.setAuthor_id(uStory.getAuthor_id());
         story.setStory_title(uStory.getStory_title());
+        story.setStory_description(uStory.getStory_description());
         story.setCategory_id(uStory.getCategory_id());
         story.setStory_photo(uStory.getStory_photo());
 
-        Response r = db.update(story);
+        Response response = db.update(story);
     }
 
     @CrossOrigin
-    @DeleteMapping("/api/v1/stories/{id}")
-    public void deleteStory(@PathVariable("id") String id) {
-        StoryTO story = db.find(StoryTO.class, id);
-        Response response = db.remove(story);
+    @DeleteMapping("/api/v1/stories/{id}/{rev}")
+    public void deleteStory(@PathVariable("id") String id, @PathVariable("rev") String rev) {
+        Response response = db.remove(id, rev);
     }
 
     @CrossOrigin
