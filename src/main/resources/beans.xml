@@ -1,14 +1,11 @@
-<beans>
-<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
-<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-<!--       xmlns:aws-context="http://www.springframework.org/schema/cloud/aws/context"-->
-<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans-->
-<!--        https://www.springframework.org/schema/beans/spring-beans.xsd-->
-<!--        http://www.springframework.org/schema/cloud/aws/context-->
-<!--        http://www.springframework.org/schema/cloud/aws/context/spring-cloud-aws-context.xsd">-->
 
-<!--    <aws-context:context-region region="eu-west-1"/>-->
-<!--    <aws-context:context-credentials>-->
-<!--        <aws-context:simple-credentials access-key="AKIAIJNSDYBK2CQFVL2A" secret-key="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" />-->
-<!--    </aws-context:context-credentials>-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aws-context="http://www.springframework.org/schema/cloud/aws/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/cloud/aws/context
+        http://www.springframework.org/schema/cloud/aws/context/spring-cloud-aws-context.xsd">
+
+<aws-context:context-region region="eu-west-2"/>
 </beans>
