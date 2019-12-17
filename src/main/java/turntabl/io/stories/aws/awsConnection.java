@@ -23,7 +23,7 @@ public class awsConnection {
 
         s3service s3service = new s3service();
 
-        AWSCredentials credentials = new BasicAWSCredentials("AKIAZ3DXJIYVGUOO63ZU", "1Hr+doUH4utSLQ4SXCMKCN44W60Osi7hPDx7ASXM");
+        AWSCredentials credentials = new BasicAWSCredentials("", "");
         AmazonS3 s3client = AmazonS3ClientBuilder
                 .standard()
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
