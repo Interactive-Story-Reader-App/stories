@@ -2,10 +2,7 @@ package turntabl.io.stories.controllers;
 
 import com.cloudant.client.api.Database;
 import com.cloudant.client.api.model.Response;
-import com.cloudant.client.api.query.JsonIndex;
-import com.cloudant.client.api.query.QueryBuilder;
-import com.cloudant.client.api.query.QueryResult;
-import com.cloudant.client.api.query.Sort;
+import com.cloudant.client.api.query.*;
 import org.springframework.beans.factory.annotation.Autowired;;
 import org.springframework.web.bind.annotation.*;
 import turntabl.io.stories.models.NewStory;
@@ -30,8 +27,13 @@ public class StoryController {
     @CrossOrigin
     @GetMapping("/api/v1/stories")
     public List<StoryTO> getStories() throws IOException {
-        List<StoryTO> allStories = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse().getDocsAs(StoryTO.class);
-        return allStories;
+        db.createIndex(TextIndex.builder().string("status").definition());
+
+        QueryResult<StoryTO> chapter = db.query(new QueryBuilder(
+                eq("status", "published")).
+                build(), StoryTO.class);
+
+        return chapter.getDocs();
     }
 
     @CrossOrigin
@@ -41,15 +43,16 @@ public class StoryController {
     }
 
     @CrossOrigin
-    @PatchMapping("/api/v1/stories/{id}")
+    @PutMapping("/api/v1/stories/{id}")
     public void updateStory(@RequestBody StoryTO uStory, @PathVariable("id") String id) {
         StoryTO story = db.find(StoryTO.class, id);
 
         story.setAuthor_id(uStory.getAuthor_id());
         story.setStory_title(uStory.getStory_title());
         story.setStory_description(uStory.getStory_description());
-        story.setCategory_id(uStory.getCategory_id());
+        story.setStory_category(uStory.getStory_category());
         story.setStory_photo(uStory.getStory_photo());
+        story.setStatus(uStory.getStatus());
 
         Response response = db.update(story);
     }
@@ -72,5 +75,15 @@ public class StoryController {
         return story;
     }
 
+    @CrossOrigin
+    @GetMapping("/api/v1/stories/author/{id}")
+    public List<StoryTO> getStoriesByAuthor(@PathVariable("id") String author_id){
+        db.createIndex(TextIndex.builder().string("author_id").definition());
 
+        QueryResult<StoryTO> chapter = db.query(new QueryBuilder(
+                eq("author_id", author_id)).
+                build(), StoryTO.class);
+
+        return chapter.getDocs();
+    }
 }

@@ -1,21 +1,25 @@
 package turntabl.io.stories.models;
 
+import java.util.Arrays;
+
 public class NewStory {
     private String story_title;
     private String story_description;
-    private String category_id;
+    private String story_category;
     private String author_id;
     private String story_photo;
+    private String status;
 
     public NewStory() {
     }
 
-    public NewStory(String story_title, String story_description, String category_id, String author_id, String story_photo) {
+    public NewStory(String story_title, String story_description, String story_category, String author_id, String story_photo, String status) {
         this.story_title = story_title;
         this.story_description = story_description;
-        this.category_id = category_id;
+        this.story_category = story_category;
         this.author_id = author_id;
         this.story_photo = story_photo;
+        this.status = status;
     }
 
     public String getAuthor_id() {
@@ -42,12 +46,12 @@ public class NewStory {
         this.story_description = story_description;
     }
 
-    public String getCategory_id() {
-        return category_id;
+    public String getStory_category() {
+        return story_category;
     }
 
-    public void setCategory_id(String category_id) {
-        this.category_id = category_id;
+    public void setStory_category(String story_category) {
+        this.story_category = story_category;
     }
 
     public String getStory_photo() {
@@ -58,14 +62,24 @@ public class NewStory {
         this.story_photo = story_photo;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "NewStory{" +
                 "story_title='" + story_title + '\'' +
                 ", story_description='" + story_description + '\'' +
-                ", category_id='" + category_id + '\'' +
+                ", story_category='" + story_category + '\'' +
                 ", author_id='" + author_id + '\'' +
                 ", story_photo='" + story_photo + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
+
 }
