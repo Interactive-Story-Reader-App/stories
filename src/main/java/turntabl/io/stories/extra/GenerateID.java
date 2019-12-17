@@ -6,6 +6,7 @@ public class GenerateID {
     public static int getId(int length){
         String numbers = "123456789";
         Random ran = new Random();
+
         int getLen = length;
         StringBuilder sb = new StringBuilder(getLen);
 
