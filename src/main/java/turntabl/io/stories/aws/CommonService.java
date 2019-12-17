@@ -4,10 +4,7 @@ import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
-import org.apache.commons.io.FileUtils;
 
-import java.io.File;
-import java.io.IOException;
 
 public class CommonService {
     public void getObj(AmazonS3 s3client) {
