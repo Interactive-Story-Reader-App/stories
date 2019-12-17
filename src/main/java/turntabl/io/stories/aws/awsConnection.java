@@ -11,7 +11,7 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectListing;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
-import jdk.internal.jline.internal.Log;
+import com.sun.tools.sjavac.Log;
 
 import java.io.File;
 import java.io.IOException;
