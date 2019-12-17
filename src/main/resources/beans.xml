@@ -6,8 +6,5 @@
         http://www.springframework.org/schema/cloud/aws/context
         http://www.springframework.org/schema/cloud/aws/context/spring-cloud-aws-context.xsd">
 
-    <aws-context:context-region region="eu-west-1"/>
-    <aws-context:context-credentials>
-        <aws-context:simple-credentials access-key="AKIAJYKN6JAZ4H3WCM7A" secret-key="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" />
-    </aws-context:context-credentials>
+    <aws-context:context-region region="eu-west-2"/>
 </beans>
