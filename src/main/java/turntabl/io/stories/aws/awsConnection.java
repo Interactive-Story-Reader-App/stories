@@ -11,7 +11,6 @@ import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectListing;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
-import com.sun.tools.sjavac.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,7 +45,7 @@ public class awsConnection {
 
 //            s3service.getObj(s3client);
         }else {
-            Log.info("Bucket name is not available.");
+//            Log.info("Bucket name is not available.");
         }
     }
 
