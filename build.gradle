@@ -24,7 +24,6 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	compile group: 'com.cloudant', name: 'cloudant-spring-boot-starter', version: '0.0.4'
-
 }
 
 dependencyManagement {
@@ -32,8 +31,8 @@ dependencyManagement {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
 
-
 	test {
 		useJUnitPlatform()
 	}
+
 }
